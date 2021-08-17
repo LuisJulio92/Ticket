@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ticket.Pages.TicketDetailPage"
+             xmlns:local="clr-namespace:Ticket"
+             BackgroundColor="Gray">
+
+    <Grid Margin="20">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Image Source="programador.png"
+               Aspect="AspectFit"
+               Grid.Row="0"/>
+        <Entry Text="{Binding Profile.Titulo, Mode=TwoWay}"
+               Grid.Row="1"/>
+        <Entry Text="{Binding Profile.Description, Mode=TwoWay}"
+               Grid.Row="2"/>
+
+        <Button Text="Actualizar"
+                Command="{Binding updateCommand}"
+                Grid.Row="3"/>
+        
+        <Button Text="Eliminar"
+                Command="{Binding DeteteCommand}"
+                Grid.Row="4"/>
+    </Grid>
+</ContentPage>

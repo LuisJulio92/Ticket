@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ticket.Pages.ViewTablePage"
+             Title="View Ticket">
+
+    <Grid>
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+            <CollectionView Grid.Row="0"
+                        Grid.ColumnSpan="2"
+                        SelectionMode="Single"
+                        SelectedItem="{Binding SelectedPerson,Mode=TwoWay}"
+                        ItemsSource="{Binding Tick,Mode=TwoWay}"
+                        Margin="10">
+            
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="10"
+                                   Orientation="Vertical"/>
+            </CollectionView.ItemsLayout>
+            
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame
+                        CornerRadius="10">
+                        <StackLayout>
+                            <Label Text="{Binding Titulo}"
+                                   TextColor="Black"/>
+                            <Label Text="{Binding Description}"
+                                   TextColor="Black"/>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            
+        </CollectionView>
+
+        
+        <Button Text="Crear"
+                Grid.Row="1"
+                Grid.Column="0"
+                Command="{Binding CreateCommand}"/>
+    </Grid>
+</ContentPage>
